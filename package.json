@@ -16,6 +16,8 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "apollo-server-express": "^2.15.0"
+    "@types/uuid": "^8.3.4",
+    "apollo-server-express": "^2.15.0",
+    "uuid": "^9.0.0"
   }
 }

@@ -5,13 +5,23 @@ const typeDefs = gql`
   me: [user]!
   }
 
-  type Mutation {
-    login(username: String!, password: String!): Auth
-    createVote(username: String!, email: String!, password:String!): Auth
-    
+  Input saveBookInput{
+    bookId: ID!
+    authors: [authors]
+    description: String
+    title: String
+    image: String
+    link: String
   }
 
-  type user {
+  type Mutation {
+    login(username: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password:String!): Auth
+    saveBook(Input:saveBookInput): SavedBook
+    removeBook(bookId:ID):[User]
+  }
+
+  type User {
     _id: ID!
     username: String!
     email: String!
@@ -20,17 +30,17 @@ const typeDefs = gql`
   }
 
   type Book {
-    bookId (Not the _id, but the book's id value returned from Google's Book API.)
-    authors: [authors]!
-    description: String!
-    title: String!
-    image: String!
-    link: String!
+    bookId: ID!
+    authors: [authors]
+    description: String
+    title: String
+    image: String
+    link: String
   }
 
   type auth {
     token
-    user: user!
+    user: [User!]
   }
 
 `;
