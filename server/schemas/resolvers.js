@@ -1,7 +1,11 @@
-const { Tech, Matchup } = require('../models');
+const { Book, index, User } = require('../models');
 
 const resolvers = {
   Query: {
+
+    sayHello() {
+      return 'Hello World!';
+    }
     // tech: async () => {
     //   return Tech.find({});
     // },

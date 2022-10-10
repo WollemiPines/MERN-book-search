@@ -28,7 +28,16 @@ export const ADD_USER = gql`
 
 // SAVE_BOOK will execute the saveBook mutation.
 export const SAVE_BOOK = gql`
-mutation saveBook`
+mutation saveBook($bookId: ID!, $authors: [authors], $description: String, $title: String, $image: String, $link: String) {
+    saveBook($bookId: ID!, $authors: [authors], $description: String, $title: String, $image: String, $link: String) {
+        token
+      user {
+        _id
+        username
+      }
+    }
+}
+`
 
 // REMOVE_BOOK will execute the removeBook mutation.
 export const REMOVE_BOOK = gql`
