@@ -3,8 +3,8 @@ const { Book, index, User } = require('../models');
 const resolvers = {
   Query: {
 
-    sayHello() {
-      return 'Hello World!';
+    me: async (_, args, context) => {
+        
     }
     // tech: async () => {
     //   return Tech.find({});

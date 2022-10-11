@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 
-import { getMe, deleteBook } from '../utils/API';
+// import { getMe, deleteBook } from '../utils/API';
+// import { ,  } from '../mutations';
+import { GET_ME } from '../queries';
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
@@ -20,7 +22,7 @@ const SavedBooks = () => {
           return false;
         }
 
-        const response = await getMe(token);
+        const response = await GET_ME(token);
 
         if (!response.ok) {
           throw new Error('something went wrong!');
